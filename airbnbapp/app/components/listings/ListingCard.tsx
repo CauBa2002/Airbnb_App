@@ -6,7 +6,7 @@ import { useCallback, useMemo } from "react";
 import { format } from "date-fns";
 import { Listing, Reservation } from "@prisma/client";
 
-import useContries from "@/app/hooks/useCountry";
+import useCountries from "@/app/hooks/useCountry";
 
 import { SafeListing, SafeUser } from "@/app/types";
 
@@ -34,7 +34,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
     currentUser
 }) => {
     const router = useRouter();
-    const { getByValue } = useContries();
+    const { getByValue } = useCountries();
 
     const location = getByValue(data.locationValue);
 
@@ -72,7 +72,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         <div
             onClick={() => router.push(`/listings/${data.id}`)}
             className="col-span-1 cursor-pointer group"
-        >/
+        >
             <div className="flex flex-col gap-2 w-full">
                  <div className="aspect-square w-full relative overflow-hidden rounded-xl">
                     <Image 

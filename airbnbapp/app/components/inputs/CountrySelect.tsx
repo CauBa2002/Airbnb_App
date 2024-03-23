@@ -2,7 +2,7 @@
 
 import Select from "react-select";
 
-import useContries from "@/app/hooks/useCountry";
+import useCountries from "@/app/hooks/useCountry";
 
 export type CountrySelectValue = {
     flag: string,
@@ -21,7 +21,7 @@ const CountrySelect:React.FC<CountrySelectProps> = ({
     value,
     onChange
 }) => {
-    const {getAll} = useContries();
+    const {getAll} = useCountries();
 
     return(
         <div>
@@ -43,7 +43,7 @@ const CountrySelect:React.FC<CountrySelectProps> = ({
                     </div>
                 )}
                 classNames={{
-                    control: () => 'p-3 border-2',
+                    control: () => 'p-2 border-2',
                     input: () => 'text-lg',
                     option: () => 'text-lg'
                 }}

@@ -31,10 +31,10 @@ model Account {
   userId             String  @db.ObjectId
   type               String
   provider           String
-  providerAccountIds String
+  providerAccountId String
   refresh_token      String? @db.String
   access_token       String? @db.String
-  expiress_at        Int?
+  expires_at         Int?
   token_type         String?
   scope              String?
   id_token           String? @db.String
@@ -42,7 +42,7 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider, providerAccountIds])
+  @@unique([provider, providerAccountId])
 }
 
 model Listing {
